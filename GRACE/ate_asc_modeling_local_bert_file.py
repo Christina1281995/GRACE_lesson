@@ -536,7 +536,14 @@ class PreTrainedBertModel(nn.Module):
                 with tarfile.open('bert-base-uncased/bert-base-uncased.tar.gz', 'r:gz') as archive:
                     archive.extractall(tempdir)
                 serialization_dir = tempdir
-            
+
+            elif os.path.isfile('GRACE/bert-base-uncased/bert-base-uncased.tar.gz'):
+            #christina: changed the source fo the archive file to the repo location of the downloaded bert-base-uncased tar.gz file
+            #with tarfile.open(resolved_archive_file, 'r:gz') as archive:
+                with tarfile.open('GRACE/bert-base-uncased/bert-base-uncased.tar.gz', 'r:gz') as archive:
+                    archive.extractall(tempdir)
+                serialization_dir = tempdir
+
             elif os.path.isfile('../GRACE/bert-base-uncased/bert-base-uncased.tar.gz'):
             #christina: changed the source fo the archive file to the repo location of the downloaded bert-base-uncased tar.gz file
             #with tarfile.open(resolved_archive_file, 'r:gz') as archive:
